@@ -24,7 +24,7 @@ body, html {
 
 .bg_container {
 	position: relative;
-	height: 800px;
+	height: 1200px;
 	z-index: 1;
 }
 
@@ -126,7 +126,7 @@ body, html {
 
 #undertitles_para {
 	font-family: "MinecraftSeven";
-	font-size: 20px;
+	font-size: 2em;
 	color: #FFFFFF;
 	vertical-align: top;
 	width: 75%;
@@ -135,7 +135,7 @@ body, html {
 }
 
 #divider {
-	margin-top: 50px;
+	margin-top: 80px;
 }
 
 .box_border:hover {
