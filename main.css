@@ -26,7 +26,7 @@ body, html {
 
 .bg_container {
 	position: relative;
-	height: 1200px;
+	height: 1400px;
 	z-index: 1;
 }
 
@@ -99,7 +99,7 @@ body, html {
 	text-align: center;
 	width: 100%;
 	position: absolute;
-	top: 60%;
+	top: 70%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	z-index: 2;	
@@ -109,14 +109,14 @@ body, html {
 	font-family: "MinecraftTen";
 	font-size: 60px;
 	height: 150px;
-	color: black;
+	color: #FFAA00;
 }
 
 #undertitles_div {
 	text-align: center;
 	width: 100%;
 	position: absolute;
-	top: 75%;
+	top: 80%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	z-index: 2;
@@ -166,6 +166,7 @@ body, html {
   	left: 50%;
   	transform: translate(-50%, -50%);
   	font-family: "MinecraftTen";
-	font-size: 60px;
+	font-size: 5.5vmax;
 	color: #FFAA00;
 }
+
