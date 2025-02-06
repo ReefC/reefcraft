@@ -1,0 +1,150 @@
+<!-- 1.1 -->
+<hmtl>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewpoint" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/leonardosnt/mc-player-counter/dist/mc-player-counter.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/leonardosnt/mc-player-counter/dist/mc-player-counter.min.js"></script>
+    <link href="main.css" rel="stylesheet" />
+    <title>ReefCraft</title>
+  </head>
+  <body>
+	
+	<div class="bg_container">
+    	
+    	<div class="bg_wrapper">
+    		<div class="bg">
+    		</div>
+    	</div>
+    	
+    	<div class="container">
+    	<div class="row">
+    	
+    		<div class="col-xl-12">
+    			<h1 id="page_title">
+        			<span style="color:55FF55">Reef</span><span style="color:00AA00">Craft</span>
+    			</h1>
+    		</div>
+    	
+    		<div class="col-xl-12">
+    			<h2 id="page_subtitle">
+    				mc.reefcraft.co.uk
+    			</h2>
+		</div>
+		
+		<div class="col-xl-12">
+		    <p id="player_counter_text">
+		        <span id="player_status">There are</span> 
+		        <span data-playercounter-ip="mc.reefcraft.co.uk">0</span> 
+		        <span id="player_text">players</span> online.
+		    </p>
+		</div>
+		
+		<script>
+		    function updatePlayerText(playerCount) {
+		        const playerText = document.getElementById("player_text");
+		        const playerStatus = document.getElementById("player_status");
+		
+		        playerText.innerText = playerCount === 1 ? "player" : "players";
+		        playerStatus.innerText = playerCount === 1 ? "There is" : "There are";
+		    }
+		
+		    function fetchPlayerCount() {
+		        const playerCounter = document.querySelector("[data-playercounter-ip]");
+		        if (!playerCounter) return;
+		
+		        const serverIP = playerCounter.getAttribute("data-playercounter-ip");
+		        fetch(`https://mcapi.us/server/status?ip=${serverIP}`)
+		            .then(response => response.json())
+		            .then(data => {
+		                if (data.online) {
+		                    let playerCount = data.players.now || 0;
+		                    playerCounter.innerText = playerCount;
+		                    updatePlayerText(playerCount);
+		                } else {
+		                    playerCounter.innerText = "Offline";
+		                    document.getElementById("player_status").innerText = "The server is";
+		                    document.getElementById("player_text").innerText = "offline";
+		                }
+		            })
+		            .catch(() => {
+		                playerCounter.innerText = "Error";
+		                document.getElementById("player_status").innerText = "Unable to fetch";
+		                document.getElementById("player_text").innerText = "data";
+		            });
+		    }
+		
+		    // Run immediately when the page loads
+		    fetchPlayerCount();
+		
+		    // Update every 60 seconds
+		    setInterval(fetchPlayerCount, 60000);
+		</script>
+		
+	</div>
+	<div class="row" id="page_undertitles">
+  		<div class="col-xl-6">
+  			<h3 id="undertitles">Java and<br>Bedrock</h3>
+  			<p id="undertitles_para">Our server supports both versions of Minecraft across all platforms. If you wish to play on console, please read more below.</p>
+
+  		</div>
+  		<div class="col-xl-6">
+  			<h3 id="undertitles" style="color:#5865F2">Discord</h3>
+  			<img id="discord_logo" src="images/discord-mark-blue.png" style="width:85px;height:auto;"/>
+  			<p id="undertitles_para">Our Discord server is a great way to get to know other people on the server and keep up-to-date with what's going on. Just click the Discord helmet!</p>
+
+  		</div>
+  	</div>
+  	</div>	
+    </div>
+
+	<div id="divider">
+		<div class="container-fluid">
+			<div class="box_hover">
+				<div class="row">
+
+					<div class="col-sm-4">
+						<div class="box_border">
+							<div class="box_hover">
+								<a href="console-support.html">
+									<span class="link"></span>
+								</a>
+								<img class="box_image" src="images/box_image_1.png" />
+								<h3 class="box_title">General Info</h3>
+							</div>
+						</div>
+					</div>
+			
+					<div class="col-sm-4">
+						<div class="box_border">
+							<div class="box_hover">
+								<a href="console-support.html">
+								<span class="link"></span>
+								</a>
+								<img class="box_image" src="images/box_image_2.png" />
+								<h3 class="box_title">Console Support</h3>
+							</div>
+						</div>
+					</div>
+			
+					<div class="col-sm-4">
+						<div class="box_border">
+							<div class="box_hover">
+								<a href="console-support.html">
+								<span class="link"></span>
+								</a>
+								<img class="box_image" src="images/box_image_3.png" />
+								<h3 class="box_title">Rules and Commands</h3>
+							</div>
+						</div>
+					</div>
+			
+			</div>
+		</div>
+	</div>
+	
+
+  </body>
+</hmtl>

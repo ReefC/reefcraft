@@ -1,0 +1,191 @@
+/* 1.1 */
+
+@font-face {
+	/* Custom font from https://github.com/IdreesInc/Monocraft */
+	font-family: "Monocraft";
+	src: url('fonts/Monocraft.ttf') format('truetype');;
+}
+
+@font-face {
+	/* Custom font from https://www.minecraft.net/en-us/store/minecraft-java-bedrock-edition-pc */
+	font-family: "MinecraftTen";
+	src: url('fonts/MinecraftTen.woff') format('woff');;
+}
+
+@font-face {
+	/* Custom font from https://www.minecraft.net/en-us/store/minecraft-java-bedrock-edition-pc */
+	font-family: "MinecraftSeven";
+	src: url('fonts/MinecraftSeven.woff') format('woff');;
+}
+
+body, html {
+	height: 100%;
+	margin: 0;
+	background-color: #555555;
+}
+
+.bg_container {
+	position: relative;
+	height: 1400px;
+	z-index: 1;
+}
+
+.bg_wrapper {
+	height: 105%;
+	width: auto;
+	overflow: hidden
+}
+
+.bg {
+
+	/* top, transparent black, faked with gradient, background image from file */ 
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("images/background_image.png");
+
+	/* Full height */
+	width: 105%;
+  	height: 105%;
+  	margin: -5px;
+
+	/* Center and scale the image nicely */
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+  
+	/* Add the blur effect */
+	filter: blur(2px);
+	-webkit-filter: blur(2px);
+}
+
+#page_title {
+	font-family: "MinecraftSeven";
+	font-size: 150px;
+	font-weight: bolder;
+	text-align: center;
+	position: absolute;
+	top: 20%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 2;
+	text-shadow: 8px 8px #555555;
+}
+
+#page_subtitle {
+	font-family: "Monocraft";
+	font-size: 50px;
+	font-weight: bolder;
+	color: #FFAA00;
+	text-align: center;
+	position: absolute;
+	top: 32.5%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 2;
+}
+
+#player_counter_text {
+	font-family: "Monocraft";
+	font-size: 40px;
+	font-weight: bolder;
+	color: #FF5555;
+	text-align: center;
+	width: 100%;
+	position: absolute;
+	top: 5%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 2;
+}
+
+#page_undertitles {
+	text-align: center;
+	width: 100%;
+	position: absolute;
+	top: 70%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 2;	
+}
+
+#undertitles {
+	font-family: "MinecraftTen";
+	font-size: 60px;
+	height: 150px;
+	color: #FFAA00;
+	text-shadow: 4px 4px #555555;
+}
+
+#undertitles_div {
+	text-align: center;
+	width: 100%;
+	position: absolute;
+	top: 80%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 2;
+}
+
+#discord_logo {
+	margin-top: -80px;
+	color: #FFAA00;
+    -webkit-filter: drop-shadow(4px 4px 4px #555555);
+    filter: #drop-shadow(4px 4px 4px #555555);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=4, OffY=4, Color='#555555')";
+    filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=4, OffY=4, Color='#555555')";
+}	
+
+#discord_logo:hover {
+	
+}
+
+#undertitles_para {
+	font-family: "MinecraftSeven";
+	font-size: 2em;
+	color: #FFFFFF;
+	vertical-align: top;
+	width: 75%;
+	margin: 0 auto;
+	position: relative;
+}
+
+#divider {
+	margin-top: 80px;
+}
+
+.box_border:hover {
+  	padding: 0px;
+}
+
+.box_border {
+	width: 100%;
+  	padding: 10px;
+  	transition: .3s;
+  	position: relative;
+  	text-align: center;
+  	border-radius: 25px;
+}
+
+.box_image {
+	background-size: cover;
+	width: 100%;
+	border-radius: 7.5px;
+	filter: brightness(75%)
+}
+
+.box_title {
+	position: absolute;
+	top: 50%;
+  	left: 50%;
+  	transform: translate(-50%, -50%);
+  	font-family: "MinecraftTen";
+	font-size: 5.5vmax;
+	color: #FFAA00;
+}
+
+.link {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
