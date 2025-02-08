@@ -131,10 +131,14 @@ body, html {
     filter: #drop-shadow(4px 4px 4px #555555);
     -ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=4, OffY=4, Color='#555555')";
     filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=4, OffY=4, Color='#555555')";
+	  transition: .3s;
 }	
 
 #discord_logo:hover {
-	
+	-webkit-filter: drop-shadow(4px 4px 4px #646464);
+	filter: #drop-shadow(4px 4px 4px #646464);
+	-ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=4, OffY=4, Color='#646464')";
+	filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=4, OffY=4, Color='#646464')";
 }
 
 #undertitles_para {
