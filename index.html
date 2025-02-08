@@ -43,45 +43,49 @@
 		</div>
 		
 		<script>
-		    function updatePlayerText(playerCount) {
-		        const playerText = document.getElementById("player_text");
-		        const playerStatus = document.getElementById("player_status");
-		
-		        playerText.innerText = playerCount === 1 ? "player" : "players";
-		        playerStatus.innerText = playerCount === 1 ? "There is" : "There are";
-		    }
-		
-		    function fetchPlayerCount() {
-		        const playerCounter = document.querySelector("[data-playercounter-ip]");
-		        if (!playerCounter) return;
-		
-		        const serverIP = playerCounter.getAttribute("data-playercounter-ip");
-		        fetch(`https://mcapi.us/server/status?ip=${serverIP}`)
-		            .then(response => response.json())
-		            .then(data => {
-		                if (data.online) {
-		                    let playerCount = data.players.now || 0;
-		                    playerCounter.innerText = playerCount;
-		                    updatePlayerText(playerCount);
-		                } else {
-		                    playerCounter.innerText = "Offline";
-		                    document.getElementById("player_status").innerText = "The server is";
-		                    document.getElementById("player_text").innerText = "offline";
-		                }
-		            })
-		            .catch(() => {
-		                playerCounter.innerText = "Error";
-		                document.getElementById("player_status").innerText = "Unable to fetch";
-		                document.getElementById("player_text").innerText = "data";
-		            });
-		    }
-		
-		    // Run immediately when the page loads
-		    fetchPlayerCount();
-		
-		    // Update every 60 seconds
-		    setInterval(fetchPlayerCount, 60000);
-		</script>
+    function updatePlayerText() {
+        const playerCounter = document.querySelector("[data-playercounter-ip]");
+        const playerText = document.getElementById("player_text");
+        const playerStatus = document.getElementById("player_status");
+
+        if (playerCounter) {
+            let playerCount = parseInt(playerCounter.innerText, 10) || 0;
+            playerText.innerText = playerCount === 1 ? "player" : "players";
+            playerStatus.innerText = playerCount === 1 ? "There is" : "There are";
+        }
+    }
+
+    function fetchPlayerCount() {
+        const playerCounter = document.querySelector("[data-playercounter-ip]");
+        if (!playerCounter) return;
+
+        const serverIP = playerCounter.getAttribute("data-playercounter-ip");
+        fetch(`https://mcapi.us/server/status?ip=${serverIP}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.online) {
+                    let playerCount = data.players.now || 0;
+                    playerCounter.innerText = playerCount;
+                    updatePlayerText(); // Update text dynamically
+                } else {
+                    playerCounter.innerText = "Offline";
+                    document.getElementById("player_status").innerText = "The server is";
+                    document.getElementById("player_text").innerText = "offline";
+                }
+            })
+            .catch(() => {
+                playerCounter.innerText = "Error";
+                document.getElementById("player_status").innerText = "Unable to fetch";
+                document.getElementById("player_text").innerText = "data";
+            });
+    }
+
+    // Run immediately when the page loads
+    fetchPlayerCount();
+
+    // Update every 60 seconds
+    setInterval(fetchPlayerCount, 60000);
+</script>
 		
 	</div>
 	<div class="row" id="page_undertitles">
