@@ -174,11 +174,14 @@ body, html {
 .box_title {
 	position: absolute;
 	top: 50%;
-  	left: 50%;
-  	transform: translate(-50%, -50%);
-  	font-family: "MinecraftTen";
-	font-size: 70%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-family: "MinecraftTen";
+	font-size: 5.5vw; /* Scales with viewport width */
 	color: #FFAA00;
+	text-shadow: 3px 3px #555555;
+	text-align: center;
+	width: 90%; /* Ensures text wraps properly */
 }
 
 .link {
